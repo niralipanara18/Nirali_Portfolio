@@ -33,26 +33,27 @@ const projectData = {
         image: "Assets/Poster/Poster.jpeg"
     },
     5: {
-        title: "Energy & Stamina Gym Post",
+        title: "Trainer Spotlight Post",
         category: "Social Media",
-        description: "A dynamic social media graphic promoting energy booster drinks and stamina building workouts, utilizing bold contrast colors.",
+        description: "Professional layout design introducing gym certified trainers and their training philosophies.",
         client: "Active Life Gym",
         year: "2026",
         image: "Assets/Social Media/Gym/Gym1.jpeg"
     },
     6: {
-        title: "Holi Fitness Campaign Post",
+        title: "Supplements Guide Graphic",
         category: "Social Media",
-        description: "A creative gym post themed around the Holi festival, merging traditional colors with modern fitness motivation.",
-        client: "Fitness Studio",
+        description: "Educational visual graphics details on natural vitamins and health supplements for muscle recovery.",
+        client: "Health & Fitness Co.",
         year: "2025",
         image: "Assets/Social Media/Gym/Gym2.jpeg"
+
     },
     7: {
-        title: "Power & Strength Motivation",
+        title: "Weekly Fitness Challenge",
         category: "Social Media",
-        description: "Inspiring social media post layout highlighting physical strength and regular workout motivation for gym members.",
-        client: "Iron Clad Gym",
+        description: "High-engagement social media layout encouraging gym followers to participate in a 7-day push-up challenge.",
+        client: "Fitness Studio",
         year: "2026",
         image: "Assets/Social Media/Gym/Gym3.jpeg"
     },
@@ -65,14 +66,15 @@ const projectData = {
         image: "Assets/Social Media/Gym/Gym4.jpeg"
     },
     9: {
-        title: "Cardio Training Guide",
+        title: "Energy & Stamina Gym Post",
         category: "Social Media",
-        description: "Social media visual guide focusing on high-intensity interval training (HIIT) benefits and cardio tips.",
+        description: "A dynamic social media graphic promoting energy booster drinks and stamina building workouts, utilizing bold contrast colors.",
         client: "Active Life Gym",
         year: "2026",
         image: "Assets/Social Media/Gym/Gym5.jpeg"
     },
     10: {
+
         title: "Gym Membership Promo",
         category: "Social Media",
         description: "Attractive promotional post advertising special seasonal discount memberships and fitness classes.",
@@ -81,44 +83,46 @@ const projectData = {
         image: "Assets/Social Media/Gym/Gym6.jpeg"
     },
     11: {
-        title: "Morning Workout Routine",
-        category: "Social Media",
-        description: "Clean, visual tips post highlighting the scientific benefits of early morning gym routines.",
-        client: "Fitness Studio",
-        year: "2026",
-        image: "Assets/Social Media/Gym/Gym7.jpeg"
-    },
-    12: {
         title: "Strength Training Tips",
         category: "Social Media",
         description: "A list-style visual graphic showcasing core exercises for building overall back and shoulder strength.",
         client: "Iron Clad Gym",
         year: "2025",
+        image: "Assets/Social Media/Gym/Gym7.jpeg"
+    },
+    12: {
+        title: "Morning Workout Routine",
+        category: "Social Media",
+        description: "Clean, visual tips post highlighting the scientific benefits of early morning gym routines.",
+        client: "Fitness Studio",
+        year: "2026",
         image: "Assets/Social Media/Gym/Gym8.jpeg"
+
     },
     13: {
-        title: "Trainer Spotlight Post",
+        title: "Cardio Training Guide",
         category: "Social Media",
-        description: "Professional layout design introducing gym certified trainers and their training philosophies.",
+        description: "Social media visual guide focusing on high-intensity interval training (HIIT) benefits and cardio tips.",
         client: "Active Life Gym",
         year: "2026",
         image: "Assets/Social Media/Gym/Gym9.jpeg"
     },
     14: {
-        title: "Supplements Guide Graphic",
+        title: "Power & Strength Motivation",
         category: "Social Media",
-        description: "Educational visual graphics details on natural vitamins and health supplements for muscle recovery.",
-        client: "Health & Fitness Co.",
-        year: "2025",
+        description: "Inspiring social media post layout highlighting physical strength and regular workout motivation for gym members.",
+        client: "Iron Clad Gym",
+        year: "2026",
         image: "Assets/Social Media/Gym/Gym10.jpeg"
     },
     15: {
-        title: "Weekly Fitness Challenge",
+        title: "Holi Fitness Campaign Post",
         category: "Social Media",
-        description: "High-engagement social media layout encouraging gym followers to participate in a 7-day push-up challenge.",
+        description: "A creative gym post themed around the Holi festival, merging traditional colors with modern fitness motivation.",
         client: "Fitness Studio",
-        year: "2026",
+        year: "2025",
         image: "Assets/Social Media/Gym/Gym11.jpeg"
+
     },
     16: {
         title: "Gourmet Dish Spotlight",
