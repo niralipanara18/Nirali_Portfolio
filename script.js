@@ -208,6 +208,22 @@ const projectData = {
         year: "2025",
         image: "Assets/Social Media/other/Salon.jpeg"
     },
+    27: {
+        title: "Homm14 Brand Identity",
+        category: "Branding",
+        description: "A complete brand identity design for Homm14 Bakery & Coffee, featuring a warm orange color scheme, modern custom typography, creative packaging design, and a curated social media visual kit.",
+        client: "Homm14 Bakery & Coffee",
+        year: "2026",
+        image: "Assets/Branding/Branding2.jpeg"
+    },
+    28: {
+        title: "Homm14 Stationery & Collaterals",
+        category: "Branding",
+        description: "Custom stationery and marketing collateral design for Homm14, including high-quality coffee loyalty cards, promotional campaigns, and brand-aligned Instagram story templates.",
+        client: "Homm14 Bakery & Coffee",
+        year: "2026",
+        image: "Assets/Branding/Branding3.jpeg"
+    },
 };
 
 // DOM Elements
@@ -485,6 +501,10 @@ function openModal(projectId) {
     if (modalImage) {
         modalImage.src = project.image;
         modalImage.alt = project.title;
+        modalImage.title = "Click to view full image in a new tab";
+        modalImage.onclick = () => {
+            window.open(project.image, '_blank');
+        };
     }
     setText('modalTitle', project.title);
     setText('modalCategory', project.category);
@@ -830,26 +850,27 @@ if (contactForm) {
             abortController.abort();
         }, FORM_TIMEOUT_MS);
 
-        const payload = new URLSearchParams();
-        payload.append('name', name);
-        payload.append('email', email);
-        payload.append('phone', phone || 'Not provided');
-        payload.append('projectType', projectType);
-        payload.append('message', message);
-        payload.append('_subject', subjectLine);
-        payload.append('_replyto', email);
-        payload.append('_template', 'table');
-        payload.append('_captcha', 'false');
+        const payload = {
+            name: name,
+            email: email,
+            phone: phone || 'Not provided',
+            projectType: projectType,
+            message: message,
+            _subject: subjectLine,
+            _replyto: email,
+            _template: 'table',
+            _captcha: 'false'
+        };
 
         fetch(FORM_ENDPOINT, {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             signal: abortController.signal,
-            body: payload.toString()
+            body: JSON.stringify(payload)
         })
             .then(response => {
                 clearTimeout(timeoutId);
@@ -878,37 +899,22 @@ if (contactForm) {
                     : '';
 
                 if (/activation/i.test(serverMessage)) {
-                    showNotification(
-                        'The form is awaiting activation. Your details were copied — please paste them into an email to ' + ADMIN_EMAIL + '.',
-                        'error',
-                        8000
-                    );
-                } else if (/web server/i.test(serverMessage)) {
-                    showNotification(
-                        'The form must be used on a hosted website. Please email ' + ADMIN_EMAIL + ' directly.',
-                        'error',
-                        8000
-                    );
+                    showNotification('Form requires activation. Redirecting you to complete the setup...', 'info', 4000);
                 } else {
-                    showNotification(
-                        'Unable to send right now. Your message was copied — please email it to ' + ADMIN_EMAIL + '.',
-                        'error',
-                        8000
-                    );
+                    showNotification('Submitting via backup method...', 'info', 2000);
                 }
 
-                restoreButton();
-                showContactFallback(name, email, phone, projectType, message);
+                setTimeout(() => {
+                    contactForm.submit();
+                }, 1000);
             })
             .catch(error => {
                 clearTimeout(timeoutId);
-                console.error('Contact form error:', error);
-                const msg = error && error.name === 'AbortError'
-                    ? 'The request timed out. Your message was copied — please email it to ' + ADMIN_EMAIL + '.'
-                    : 'Network issue detected. Your message was copied — please email it to ' + ADMIN_EMAIL + '.';
-                showNotification(msg, 'error', 8000);
-                restoreButton();
-                showContactFallback(name, email, phone, projectType, message);
+                console.error('Contact form AJAX error, falling back to standard submit:', error);
+                showNotification('Submitting via backup method...', 'info', 2000);
+                setTimeout(() => {
+                    contactForm.submit();
+                }, 1000);
             });
     });
 }
